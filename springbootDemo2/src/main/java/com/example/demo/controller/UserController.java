@@ -3,6 +3,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
 
+@Api(description="用户操作")
 @RestController
 @EnableAutoConfiguration
 @RequestMapping("/user")
@@ -30,6 +33,7 @@ public class UserController {
     }
 
 
+    @ApiOperation("id查询")
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public User getUserById(@PathVariable("id") Integer usId){
 

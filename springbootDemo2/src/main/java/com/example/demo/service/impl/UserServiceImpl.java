@@ -6,12 +6,13 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
-
 
     @Override
     public User getUserById(int userId) {
@@ -31,6 +32,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int deleteUser(int usId) {
         return userDao.deleteByPrimaryKey(usId);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
     }
 
 }
